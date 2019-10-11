@@ -1,34 +1,30 @@
-var config = "" ; 
-window.config = new send_email_PlugdoNode([{
+var config_one = {
+  name_module_Export: "sendEmail",
+  nameFile: "test-email",
   path: "/send-tes_config_email",
   layoutsDir: 'content/template/father/',
   defaultLayout: 'activate',
   partialsDir: 'content/template/father/activate',
   viewPath: 'content/template/father/',
   extName: '.hbs',
-  head_message: {
-    to: "email",
-    subject: `Activa tu cuenta en Nanny 365`,
-    template: 'activate',
-    context: {
-      token: "token"
-    }
-  }
-},{
-  path: "/send-tes_config_email",
+  to: "email",
+  subject: `Activa tu cuenta en Nanny 365`,
+  template: 'activate',
+}
+
+var config_two = {
+  name_module_Export: "sendEmail2",
+  nameFile: "test-email2",
+  path: "/send-tes_config_email2",
   layoutsDir: 'content/template/father/',
   defaultLayout: 'activate',
   partialsDir: 'content/template/father/activate',
   viewPath: 'content/template/father/',
   extName: '.hbs',
-  head_message: {
-    to: "email",
-    subject: `Activa tu cuenta en Nanny 365`,
-    template: 'activate',
-    context: {
-      token: "token"
-    }
-  }
-}]
-);
+  to: "email",
+  subject: `Activa tu cuenta en Nanny 365`,
+  template: 'activate',
+}
+
+window.config = new send_email_PlugdoNode([config_one, config_two]);
 
