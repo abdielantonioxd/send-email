@@ -19,6 +19,7 @@ configEmail.post('/create-file-email', function (req, res) {
   let to = body.to;
   let subject = body.subject;
   let template = body.template
+  let listening = body.listening;
   createFile();
   function createFile() {
     var dataFile = ` const {
@@ -74,10 +75,16 @@ configEmail.post('/create-file-email', function (req, res) {
     res.end()
   })
   module.exports = ${name_module_Export};`;
-    fs.appendFile(`content/modules/sendEmail/${nameFile}.js`, dataFile, (err) => {
-      if (err) throw err;
-      console.log('Archivo Creado Satisfactoriamente');
-    });
+
+    if (listening === true) {
+      fs.appendFile(`content/modules/sendEmail/${nameFile}.js`, dataFile, (err) => {
+        if (err) throw err;
+        console.log('Archivo Creado Satisfactoriamente');
+      });
+    } else {
+
+    }
+
   }
   res.sendStatus(200)
   res.end()
