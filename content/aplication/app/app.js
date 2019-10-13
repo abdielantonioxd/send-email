@@ -10,7 +10,7 @@ var config_one = {
   to: "email",
   subject: `Activa tu cuenta en Nanny 365`,
   template: 'activate',
-  listening: false
+  listeningChange: true
 }
 
 var config_two = {
@@ -25,7 +25,7 @@ var config_two = {
   to: "email",
   subject: `Activa tu cuenta en Nanny 365`,
   template: 'activate',
-  listening: false
+  listeningChange: true
 }
 
 window.config = new send_email_PlugdoNode([config_one, config_two]);
